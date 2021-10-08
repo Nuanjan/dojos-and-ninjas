@@ -22,3 +22,13 @@ def add_dojo():
     }
     Dojo.add_dojo(data)
     return redirect('/dojos')
+
+
+@app.route('/dojo/<int:dojo_id>')
+def show_dojo_and_ninjas(dojo_id):
+    data = {
+        "dojo_id": dojo_id
+    }
+    ninja_list = Dojo.get_dojo_with_ninja(data)
+    print(ninja_list.ninja, " this is ninja_list")
+    return render_template('ninja_list.html', ninja_list=ninja_list)

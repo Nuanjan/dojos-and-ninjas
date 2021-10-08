@@ -16,7 +16,7 @@
     {%block content%}
     <div class="row g-0 p-3 d-flex justify-content-around">
       <div class="col-sm-12 col-md-5 p-3 bg-dark text-white">
-        <h2>New Dojo</h2>
+        <h2 class="text-light">New Dojo</h2>
         <form
           class="
             input-group
@@ -37,18 +37,24 @@
             placeholder="Dojo's Name"
             aria-label="Dojo's Name"
           />
-          <button class="btn btn-secondary" type="submit">Create</button>
+          <button class="btn btn-warning" type="submit">Create</button>
         </form>
       </div>
       <div class="col-5 col-md-5 p-3 bg-dark text-white">
-        <h2>All Dojos</h2>
-        <div class="d-flex flex-column">
+        <h2 class="text-light">All Dojos</h2>
+        <ul class="list-group">
           {% for dojo in all_dojos %}
-          <a class="text-warning" href="/dojo/{{dojo.id}}">{{dojo.name}}</a>
+          <li class="list-group-item bg-dark border border-warning">
+            <a
+              class="text-warning text-decoration-none"
+              href="/dojo/{{dojo.id}}"
+              >{{dojo.name}}</a
+            >
+          </li>
           {% endfor %}
-        </div>
+        </ul>
       </div>
-      <a href="/add_ninja">Add Ninja</a>
+      <div class="text-center mt-3"><a href="/add_ninja">Add Ninja</a></div>
     </div>
     {% endblock %}
   </body>
